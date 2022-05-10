@@ -1,18 +1,26 @@
+<?php
+session_start(); 
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <title>PHP File Upload</title>
 </head>
 <body>
-    <form method="post" action="sending_email.php">
-        User Name: <input type="text" name="name" > <br />
-        User email: <input type="email" name="email" > <br />
-        User Subject: <input type="text" name="subject" > <br />
-        User Message: <textarea name="msg"></textarea>
-        <button type="submit" name="sending_email_btn">Send</button>
-      </form>
+  <?php
+    if (isset($_SESSION['message']) && $_SESSION['message'])
+    {
+      printf('<b>%s</b>', $_SESSION['message']);
+      unset($_SESSION['message']);
+    }
+  ?>
+  <form method="POST" action="upload.php" enctype="multipart/form-data">
+    <div>
+      <span>Upload a File:</span>
+      <input type="file" name="uploadedFile" />
+    </div>
+
+    <input type="submit" name="uploadBtn" value="Upload" />
+  </form>
 </body>
 </html>
