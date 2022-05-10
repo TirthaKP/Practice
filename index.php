@@ -7,6 +7,12 @@
     <title>Document</title>
 </head>
 <body>
-    Hello World
+    <form method="post" action="sending_email.php">
+        User Name: <input type="text" name="name" > <br />
+        User email: <input type="email" name="email" > <br />
+        User Subject: <input type="text" name="subject" > <br />
+        User Message: <textarea name="msg"></textarea>
+        <button type="submit" name="sending_email_btn">Send</button>
+      </form>
 </body>
 </html>
